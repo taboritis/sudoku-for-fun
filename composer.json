@@ -1,0 +1,32 @@
+{
+    "name": "taboritis/php-package-blueprint",
+    "description": "Blueprint for packages",
+    "type": "library",
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {
+        "rector/rector": "^1.2",
+        "phpunit/phpunit": "^11.4",
+        "squizlabs/php_codesniffer": "^3.10",
+        "phpstan/phpstan": "^1.12"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Taboritis\\PhpPackageBlueprint\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Taboritis\\PhpPackageBlueprint\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Piotr Skrobol",
+            "email": "pio.skro@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

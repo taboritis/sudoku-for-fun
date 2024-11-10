@@ -1,0 +1,9 @@
+# phpstan.neon
+parameters:
+  # Specify the level of strictness from 0 (loose) to 9 (strict)
+  level: max
+
+  # Paths to analyze
+  paths:
+    - src
+    - tests
