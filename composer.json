@@ -1,5 +1,5 @@
 {
-    "name": "taboritis/php-package-blueprint",
+    "name": "taboritis/sudoku-for-fun",
     "description": "Blueprint for packages",
     "type": "library",
     "require": {
@@ -14,12 +14,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Taboritis\\PhpPackageBlueprint\\": "src/"
+            "Taboritis\\Sudoku\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Taboritis\\PhpPackageBlueprint\\Tests\\": "tests/"
+            "Taboritis\\Sudoku\\Tests\\": "tests/"
         }
     },
     "authors": [

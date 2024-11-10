@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Taboritis\PhpPackageBlueprint\Tests;
+namespace Taboritis\Sudoku\Tests;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {

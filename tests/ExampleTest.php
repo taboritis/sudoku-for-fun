@@ -7,15 +7,15 @@ namespace Taboritis\PhpPackageBlueprint\Tests;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Taboritis\PhpPackageBlueprint\Example;
+use Taboritis\PhpPackageBlueprint\Cell;
 
-#[CoversClass(Example::class)]
+#[CoversClass(Cell::class)]
 class ExampleTest extends TestCase
 {
     #[Test]
     public function it_return_true(): void
     {
-        $example = new Example();
+        $example = new Cell();
 
         $this->assertTrue($example->alwaysTrue());
     }

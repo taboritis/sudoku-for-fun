@@ -14,7 +14,7 @@ return static function (RectorConfig $rectorConfig): void {
 
     // Add rules or sets you want to apply
     $rectorConfig->sets([
-        SetList::PHP_81,  // Example: Upgrade code to PHP 8.1 standards
+        SetList::PHP_81,  // Cell: Upgrade code to PHP 8.1 standards
         SetList::CODE_QUALITY,  // Code quality improvements
     ]);
 
