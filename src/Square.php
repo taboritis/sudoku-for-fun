@@ -14,13 +14,13 @@ class Square
      */
     public function __construct(array $cells)
     {
-        $xcells = [];
+        $candidates = [];
 
         foreach ($cells as $cell) {
-            $xcells[$cell->numericPositionInSquare()] = $cell;
+            $candidates[$cell->numericPositionInSquare()] = $cell;
         }
 
-        if (count($xcells) !== 9) {
+        if (count($candidates) !== 9) {
             throw new \InvalidArgumentException('Square must have 9 cells');
         }
 
