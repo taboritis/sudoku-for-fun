@@ -102,6 +102,25 @@ class SquareTest extends TestCase
         new Square($cells);
     }
 
+    #[Test]
+    public function a_square_must_have_9_cells(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $cells = [
+            new Cell(1, 1),
+            new Cell(1, 2),
+            new Cell(1, 3),
+            new Cell(2, 1),
+            new Cell(2, 2),
+            new Cell(2, 3),
+            new Cell(3, 1),
+            new Cell(3, 2),
+        ];
+
+        new Square($cells);
+    }
+
     public static function squareNumberConventionDataProvider(): \Generator
     {
         yield [1, [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]]];

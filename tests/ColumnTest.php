@@ -114,4 +114,21 @@ class ColumnTest extends TestCase
 
         new Column($cells);
     }
+
+    #[Test]
+    public function a_column_must_have_a_9_cells(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $cells = [
+            new Cell(1, 5),
+            new Cell(2, 5),
+            new Cell(3, 5),
+            new Cell(4, 5),
+            new Cell(5, 5),
+            new Cell(6, 5),
+            new Cell(7, 5),
+            new Cell(8, 5)
+        ];
+        new Column($cells);
+    }
 }

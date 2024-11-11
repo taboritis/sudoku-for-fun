@@ -133,4 +133,23 @@ class RowTest extends TestCase
 
         new Row($cells);
     }
+
+    #[Test]
+    public function a_row_must_have_9_cells(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $cells = [
+            new Cell(5, 1),
+            new Cell(5, 2),
+            new Cell(5, 3),
+            new Cell(5, 4),
+            new Cell(5, 5),
+            new Cell(5, 6),
+            new Cell(5, 7),
+            new Cell(5, 8)
+        ];
+
+        new Row($cells);
+    }
 }
