@@ -54,12 +54,10 @@ class Cell
 
         if ($this->column < 4) {
             return $this->column + $multiply;
-        }
-
-        if ($this->column < 7) {
+        } elseif ($this->column < 7) {
             return $this->column - 3 + $multiply;
+        } else {
+            return $this->column - 6 + $multiply;
         }
-
-        return $this->column - 6 + $multiply;
     }
 }
