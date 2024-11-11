@@ -8,7 +8,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use Taboritis\Sudoku\Cell;
-use Taboritis\Sudoku\Row;
 use Taboritis\Sudoku\Square;
 
 #[CoversClass(Square::class)]
@@ -33,6 +32,9 @@ class SquareTest extends TestCase
         $this->assertCount(9, $row->getCells());
     }
 
+    /**
+     * @param array<array<int, int>> $coordinates
+     */
     #[Test, DataProvider('squareNumberConventionDataProvider')]
     public function it_has_a_number(int $expectedSquareNumber, array $coordinates): void
     {

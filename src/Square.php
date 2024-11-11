@@ -6,7 +6,9 @@ namespace Taboritis\Sudoku;
 
 class Square
 {
-    /**@var Cell[] */
+    /**
+     * @var Cell[]
+     */
     private array $cells;
 
     /**
@@ -50,10 +52,9 @@ class Square
     }
 
     /**
-     * @param array $coordinates {row:int, column:int}
-     * @return Cell
+     * @param array{row:int, column:int} $coordinates
      */
-    public function getCell(array $coordinates)
+    public function getCell(array $coordinates): Cell
     {
         foreach ($this->cells as $cell) {
             if ($cell->getRow() === $coordinates['row'] && $cell->getColumn() === $coordinates['column']) {

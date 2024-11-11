@@ -15,7 +15,6 @@ use Taboritis\Sudoku\Square;
 #[CoversClass(Board::class)]
 class BoardTest extends TestCase
 {
-
     #[Test]
     public function a_board_is_initialized_with_empty_cells(): void
     {

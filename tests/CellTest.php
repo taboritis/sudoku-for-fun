@@ -72,6 +72,9 @@ class CellTest extends TestCase
         $this->assertEquals($numericPositionInSquare, $cell->numericPositionInSquare());
     }
 
+    /**
+     * @param array<array<int>> $coordinates
+     */
     #[Test, DataProvider('squareNumberConventionDataProvider')]
     public function a_cell_knows_a_square_where_he_is(int $expectedSquare, array $coordinates): void
     {

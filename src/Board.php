@@ -6,6 +6,9 @@ namespace Taboritis\Sudoku;
 
 class Board
 {
+    /**
+     * @var Cell[]
+     */
     private array $cells = [];
 
     public function __construct()
@@ -13,6 +16,9 @@ class Board
         $this->initializeBoard();
     }
 
+    /**
+     * @return Cell[]
+     */
     public function getCells(): array
     {
         return $this->cells;
