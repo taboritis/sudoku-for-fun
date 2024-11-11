@@ -82,4 +82,15 @@ class BoardTest extends TestCase
         $this->assertSame($cell, $theSameCell = $column->getCell($coordinates['row']));
         $this->assertSame($cell->getValue(), $theSameCell->getValue());
     }
+
+    #[Test]
+    public function it_can_be_displayed_as_array(): void
+    {
+        $board = new Board();
+        $array = $board->toArray();
+
+        $this->assertIsArray($array);
+
+        $this->assertCount(9, $array);
+    }
 }

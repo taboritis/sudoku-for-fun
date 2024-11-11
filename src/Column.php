@@ -49,4 +49,15 @@ class Column
     {
         return $this->cells;
     }
+
+    public function hasValue(int $value): bool
+    {
+        foreach ($this->cells as $cell) {
+            if ($cell->getValue() === $value) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

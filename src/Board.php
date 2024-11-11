@@ -64,4 +64,21 @@ class Board
 
         throw new \InvalidArgumentException('Cell not found');
     }
+
+    public function toArray(): array
+    {
+        $result = [];
+
+        for ($row = 1; $row <= 9; $row++) {
+            $resultRow = '';
+            for ($column = 1; $column <= 9; $column++) {
+                $cell = $this->getCell($row, $column);
+                $value = $cell->getValue() ? $cell->getValue() : '.';
+                $resultRow .= $value;
+            }
+            $result[] = $resultRow;
+        }
+
+        return $result;
+    }
 }

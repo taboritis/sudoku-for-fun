@@ -131,4 +131,29 @@ class ColumnTest extends TestCase
         ];
         new Column($cells);
     }
+
+    #[Test]
+    public function a_column_can_have_a_value(): void
+    {
+        $cells = [
+            new Cell(1, 5),
+            new Cell(2, 5),
+            new Cell(3, 5),
+            new Cell(4, 5),
+            new Cell(5, 5),
+            new Cell(6, 5),
+            new Cell(7, 5),
+            new Cell(8, 5),
+            new Cell(9, 5)
+        ];
+
+        $column = new Column($cells);
+
+        $this->assertFalse($column->hasValue(5));
+
+        $column->getCell(4)->setValue(5);
+
+        $this->assertTrue($column->hasValue(5));
+
+    }
 }

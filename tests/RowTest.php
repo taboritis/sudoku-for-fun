@@ -152,4 +152,30 @@ class RowTest extends TestCase
 
         new Row($cells);
     }
+
+    #[Test]
+    public function a_row_can_have_a_value(): void
+    {
+        $cells = [
+            new Cell(5, 1),
+            new Cell(5, 2),
+            new Cell(5, 3),
+            new Cell(5, 4),
+            new Cell(5, 5),
+            new Cell(5, 6),
+            new Cell(5, 7),
+            new Cell(5, 8),
+            new Cell(5, 9)
+        ];
+
+        $row = new Row($cells);
+
+        $cell = $row->getCell(4);
+
+        $this->assertFalse($row->hasValue(7));
+
+        $cell->setValue(7);
+
+        $this->assertTrue($row->hasValue(7));
+    }
 }
