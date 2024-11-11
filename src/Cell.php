@@ -10,7 +10,7 @@ class Cell
     private int $row;
     private int $column;
 
-    public function __construct(int $row, int $column)
+    public function __construct(int $row, int $column, int $value = 0)
     {
         if ($row < 1 || $row > 9 || $column < 1 || $column > 9) {
             throw new \InvalidArgumentException('Invalid coordinates');
@@ -18,6 +18,7 @@ class Cell
 
         $this->row = $row;
         $this->column = $column;
+        $this->value = $value;
     }
 
     public function getValue(): int

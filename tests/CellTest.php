@@ -55,4 +55,12 @@ class CellTest extends TestCase
         yield [5, 10];
         yield [10, 10];
     }
+
+    #[Test]
+    public function a_value_can_be_set_on_creating_a_cell(): void
+    {
+        $cell = new Cell(1, 1, 5);
+
+        $this->assertSame(5, $cell->getValue());
+    }
 }
