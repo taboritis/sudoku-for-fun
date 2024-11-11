@@ -43,6 +43,7 @@ class Cell
 
     public function numericPositionInSquare(): int
     {
+        // TODO: refactor needed
         if (in_array($this->row, [1, 4, 7])) {
             $multiply = 0;
         } elseif (in_array($this->row, [2, 5, 8])) {
