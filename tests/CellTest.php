@@ -63,4 +63,23 @@ class CellTest extends TestCase
 
         $this->assertSame(5, $cell->getValue());
     }
+
+    #[Test, DataProvider('provideNumericPositionInSquare')]
+    public function it_has_numeric_position_in_square(int $row, int $column, int $numericPositionInSquare): void
+    {
+        $cell = new Cell($row, $column);
+
+        $this->assertSame($numericPositionInSquare, $cell->numericPositionInSquare());
+    }
+
+    public static function provideNumericPositionInSquare(): \Generator
+    {
+        yield [1, 1, 1];
+        yield [2, 1, 4];
+        yield [2, 2, 5];
+        yield [3, 3, 9];
+        yield [5, 5, 5];
+        yield [7, 7, 1];
+        yield [9, 9, 9];
+    }
 }

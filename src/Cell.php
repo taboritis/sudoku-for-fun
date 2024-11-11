@@ -40,4 +40,9 @@ class Cell
     {
         return $this->column;
     }
+
+    public function numericPositionInSquare(): int
+    {
+        return 1;
+    }
 }
