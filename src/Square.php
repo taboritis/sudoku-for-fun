@@ -14,6 +14,7 @@ class Square
      */
     public function __construct(array $cells)
     {
+        $squares = array_map(fn($cell) => $cell->squareNumber(), $cells);
         $this->cells = $cells;
     }
 

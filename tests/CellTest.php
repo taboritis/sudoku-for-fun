@@ -72,6 +72,15 @@ class CellTest extends TestCase
         $this->assertEquals($numericPositionInSquare, $cell->numericPositionInSquare());
     }
 
+    #[Test, DataProvider('squareNumberConventionDataProvider')]
+    public function a_cell_knows_a_square_where_he_is(int $expectedSquare, array $coordinates): void
+    {
+        $randomCoordinates = $coordinates[array_rand($coordinates)];
+        $cell = new Cell($randomCoordinates[0], $randomCoordinates[1]);
+
+        $this->assertEquals($expectedSquare, $cell->squareNumber());
+    }
+
     public static function provideNumericPositionInSquare(): \Generator
     {
         yield [1, 1, 1];
@@ -86,4 +95,18 @@ class CellTest extends TestCase
         yield [7, 7, 1];
         yield [9, 9, 9];
     }
+
+    public static function squareNumberConventionDataProvider(): \Generator
+    {
+        yield [1, [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]]];
+        yield [2, [[1, 4], [1, 5], [1, 6], [2, 4], [2, 5], [2, 6], [3, 4], [3, 5], [3, 6]]];
+        yield [3, [[1, 7], [1, 8], [1, 9], [2, 7], [2, 8], [2, 9], [3, 7], [3, 8], [3, 9]]];
+        yield [4, [[4, 1], [4, 2], [4, 3], [5, 1], [5, 2], [5, 3], [6, 1], [6, 2], [6, 3]]];
+        yield [5, [[4, 4], [4, 5], [4, 6], [5, 4], [5, 5], [5, 6], [6, 4], [6, 5], [6, 6]]];
+        yield [6, [[4, 7], [4, 8], [4, 9], [5, 7], [5, 8], [5, 9], [6, 7], [6, 8], [6, 9]]];
+        yield [7, [[7, 1], [7, 2], [7, 3], [8, 1], [8, 2], [8, 3], [9, 1], [9, 2], [9, 3]]];
+        yield [8, [[7, 4], [7, 5], [7, 6], [8, 4], [8, 5], [8, 6], [9, 4], [9, 5], [9, 6]]];
+        yield [9, [[7, 7], [7, 8], [7, 9], [8, 7], [8, 8], [8, 9], [9, 7], [9, 8], [9, 9]]];
+    }
+
 }

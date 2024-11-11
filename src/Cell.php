@@ -45,4 +45,12 @@ class Cell
     {
         return (($this->row - 1) % 3) * 3 + (($this->column - 1) % 3) + 1;
     }
+
+    public function squareNumber(): int
+    {
+        $squareRow = (int)ceil($this->row / 3);
+        $squareColumn = (int)ceil($this->column / 3);
+
+        return ($squareRow - 1) * 3 + $squareColumn;
+    }
 }

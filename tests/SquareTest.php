@@ -42,8 +42,8 @@ class SquareTest extends TestCase
         $this->assertEquals($expectedSquareNumber, $column->getSquareNumber());
     }
 
-    #[Test, DataProvider('squareCellCoordinatesProvider')]
-    public function it_has_a_cells(int $expectedRow, int $expectedColumn, int $squareCellNumber): void
+    #[Test]
+    public function a_square_has_9_cells(): void
     {
         $cells = [
             new Cell(1, 1),
@@ -56,56 +56,30 @@ class SquareTest extends TestCase
             new Cell(3, 2),
             new Cell(3, 3)
         ];
-        $row = new Square($cells);
 
-        $cell = $row->getCell(['row' => $expectedRow, 'column' => $expectedColumn]);
+        $square = new Square($cells);
 
-        $this->assertInstanceOf(Cell::class, $cell);
-        $this->assertEquals($expectedColumn, $cell->getColumn());
-        $this->assertEquals($expectedRow, $cell->getRow());
-        $this->assertEquals($squareCellNumber, $cell->numericPositionInSquare());
+        $this->assertCount(9, $square->getCells());
     }
 
     #[Test]
-    public function a_row_has_9_cells(): void
+    public function it_not_possible_to_create_square_with_cells_from_different_squares(): void
     {
-        $this->markTestIncomplete();
-        $cells = [
-            new Cell(5, 1),
-            new Cell(5, 2),
-            new Cell(5, 3),
-            new Cell(5, 4),
-            new Cell(5, 5),
-            new Cell(5, 6),
-            new Cell(5, 7),
-            new Cell(5, 8),
-            new Cell(5, 9)
-        ];
-
-        $column = new Row($cells);
-
-        $this->assertCount(9, $column->getCells());
-    }
-
-    #[Test]
-    public function it_not_possible_to_create_row_with_cells_from_different_rows(): void
-    {
-        $this->markTestIncomplete();
         $this->expectException(\InvalidArgumentException::class);
 
         $cells = [
-            new Cell(5, 1),
-            new Cell(5, 2),
-            new Cell(5, 3),
-            new Cell(5, 4),
-            new Cell(5, 5),
-            new Cell(5, 6),
-            new Cell(5, 7),
-            new Cell(5, 8),
-            new Cell(6, 9)
+            new Cell(9, 1),
+            new Cell(1, 2),
+            new Cell(1, 3),
+            new Cell(2, 1),
+            new Cell(2, 2),
+            new Cell(2, 3),
+            new Cell(3, 1),
+            new Cell(3, 2),
+            new Cell(3, 3)
         ];
 
-        new Row($cells);
+        new Square($cells);
     }
 
     #[Test]
