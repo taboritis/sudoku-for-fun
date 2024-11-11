@@ -14,7 +14,22 @@ class Square
      */
     public function __construct(array $cells)
     {
+        $xcells = [];
+
+        foreach ($cells as $cell) {
+            $xcells[$cell->numericPositionInSquare()] = $cell;
+        }
+
+        if (count($xcells) !== 9) {
+            throw new \InvalidArgumentException('Square must have 9 cells');
+        }
+
         $squares = array_map(fn($cell) => $cell->squareNumber(), $cells);
+
+        if (count(array_unique($squares)) !== 1) {
+            throw new \InvalidArgumentException('Cells must be in the same square');
+        }
+
         $this->cells = $cells;
     }
 

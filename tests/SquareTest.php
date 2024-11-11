@@ -20,7 +20,7 @@ class SquareTest extends TestCase
         $cells = [
             new Cell(1, 1),
             new Cell(1, 2),
-            new Cell(2, 3),
+            new Cell(1, 3),
             new Cell(2, 1),
             new Cell(2, 2),
             new Cell(2, 3),
@@ -85,22 +85,21 @@ class SquareTest extends TestCase
     #[Test]
     public function it_is_not_possible_to_create_row_with_duplicated_coordinates(): void
     {
-        $this->markTestIncomplete();
         $this->expectException(\InvalidArgumentException::class);
 
         $cells = [
-            new Cell(5, 1),
-            new Cell(5, 1),
-            new Cell(5, 3),
-            new Cell(5, 4),
-            new Cell(5, 5),
-            new Cell(5, 6),
-            new Cell(5, 7),
-            new Cell(5, 8),
-            new Cell(5, 9)
+            new Cell(1, 1),
+            new Cell(1, 1),
+            new Cell(1, 3),
+            new Cell(2, 1),
+            new Cell(2, 2),
+            new Cell(2, 3),
+            new Cell(3, 1),
+            new Cell(3, 2),
+            new Cell(3, 3)
         ];
 
-        new Row($cells);
+        new Square($cells);
     }
 
     public static function squareNumberConventionDataProvider(): \Generator
