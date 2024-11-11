@@ -64,7 +64,6 @@ class SquareTest extends TestCase
         $this->assertEquals($expectedColumn, $cell->getColumn());
         $this->assertEquals($expectedRow, $cell->getRow());
         $this->assertEquals($squareCellNumber, $cell->numericPositionInSquare());
-
     }
 
     #[Test]

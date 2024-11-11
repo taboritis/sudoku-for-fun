@@ -69,14 +69,18 @@ class CellTest extends TestCase
     {
         $cell = new Cell($row, $column);
 
-        $this->assertSame($numericPositionInSquare, $cell->numericPositionInSquare());
+        $this->assertEquals($numericPositionInSquare, $cell->numericPositionInSquare());
     }
 
     public static function provideNumericPositionInSquare(): \Generator
     {
         yield [1, 1, 1];
+        yield [1, 3, 3];
+        yield [1, 6, 3];
+        yield [1, 9, 3];
         yield [2, 1, 4];
         yield [2, 2, 5];
+        yield [3, 3, 9];
         yield [3, 3, 9];
         yield [5, 5, 5];
         yield [7, 7, 1];
