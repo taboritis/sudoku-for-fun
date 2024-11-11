@@ -11,6 +11,21 @@ class Board
      */
     private array $cells = [];
 
+    /**
+     * @var Row[]
+     */
+    private array $rows;
+
+    /**
+     * @var Column[]
+     */
+    private array $columns;
+
+    /**
+     * @var Square[]
+     */
+    private array $squares;
+
     public function __construct()
     {
         $this->initializeBoard();
@@ -31,27 +46,30 @@ class Board
                 $this->cells[] = new Cell($row, $column);
             }
         }
+
+        for ($i = 1; $i <= 9; $i++) {
+            $rowCells = array_filter($this->cells, fn(Cell $cell) => $cell->getRow() === $i);
+            $columnCells = array_filter($this->cells, fn(Cell $cell) => $cell->getColumn() === $i);
+            $squareCells = array_filter($this->cells, fn(Cell $cell) => $cell->squareNumber() === $i);
+            $this->rows[$i] = new Row($rowCells);
+            $this->columns[$i] = new Column($columnCells);
+            $this->squares[$i] = new Square($squareCells);
+        }
     }
 
     public function getColumn(int $columnNumber): Column
     {
-        $cells = array_filter($this->cells, fn(Cell $cell) => $cell->getColumn() === $columnNumber);
-
-        return new Column($cells);
+        return $this->columns[$columnNumber];
     }
 
     public function getRow(int $rowNumber): Row
     {
-        $cells = array_filter($this->cells, fn(Cell $cell) => $cell->getRow() === $rowNumber);
-
-        return new Row($cells);
+        return $this->rows[$rowNumber];
     }
 
-    public function getSquare(int $int): Square
+    public function getSquare(int $squareNumber): Square
     {
-        $cells = array_filter($this->cells, fn(Cell $cell) => $cell->squareNumber() === $int);
-
-        return new Square($cells);
+        return $this->squares[$squareNumber];
     }
 
     public function getCell(int $row, int $column): Cell
@@ -80,5 +98,20 @@ class Board
         }
 
         return $result;
+    }
+
+    public function getRows(): array
+    {
+        return $this->rows;
+    }
+
+    public function getColumns(): array
+    {
+        return $this->columns;
+    }
+
+    public function getSquares(): array
+    {
+        return $this->squares;
     }
 }

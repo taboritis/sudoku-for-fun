@@ -93,4 +93,31 @@ class BoardTest extends TestCase
 
         $this->assertCount(9, $array);
     }
+
+    #[Test]
+    public function a_board_can_return_a_rows(): void
+    {
+        $board = new Board();
+
+        $this->assertCount(9, $board->getRows());
+        $this->assertInstanceOf(Row::class, $board->getRows()[1]);
+    }
+
+    #[Test]
+    public function it_can_return_a_columns(): void
+    {
+        $board = new Board();
+
+        $this->assertCount(9, $board->getColumns());
+        $this->assertInstanceOf(Column::class, $board->getColumns()[1]);
+    }
+
+    #[Test]
+    public function it_can_return_a_squares(): void
+    {
+        $board = new Board();
+
+        $this->assertCount(9, $board->getSquares());
+        $this->assertInstanceOf(Square::class, $board->getSquares()[1]);
+    }
 }
