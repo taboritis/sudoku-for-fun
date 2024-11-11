@@ -154,6 +154,5 @@ class ColumnTest extends TestCase
         $column->getCell(4)->setValue(5);
 
         $this->assertTrue($column->hasValue(5));
-
     }
 }

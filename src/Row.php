@@ -59,4 +59,22 @@ class Row
 
         return false;
     }
+
+    public function reset(): void
+    {
+        foreach ($this->cells as $cell) {
+            $cell->setValue(0);
+        }
+    }
+
+    public function isFilled(): bool
+    {
+        foreach ($this->cells as $cell) {
+            if ($cell->getValue() === 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
