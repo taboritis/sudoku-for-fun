@@ -10,7 +10,7 @@ use Taboritis\Sudoku\Board;
 use Taboritis\Sudoku\SudokuBoardGenerator;
 
 #[CoversClass(SudokuBoardGenerator::class)]
-class BoardFactoryTest extends TestCase
+class SudokuBoardGeneratorTest extends TestCase
 {
     #[Test]
     public function it_can_create_a_board(): void
